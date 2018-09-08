@@ -95,6 +95,10 @@ tr.footer{
 	color: black;
 }
 
+#exportModal {
+	color: black;
+}
+
 #loadingModal img {
 	height: 15%;
 }

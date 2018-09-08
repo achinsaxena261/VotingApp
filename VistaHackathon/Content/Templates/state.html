@@ -1,0 +1,42 @@
+﻿<div class="voting-options">
+	<table class="table">
+		<tr class="table-heading">
+			<td colspan="3">
+				<h2>Voting Status</h2>
+			</td>
+		</tr>
+		<tr>
+			<th>Company</th>
+			<th>Team</th>
+			<th>Votes</th>
+		</tr>
+		<tr ng-repeat="team in votingData.TeamsListForFeedback | orderBy : '-Votes'">
+			<td>{{team.CompanyName}}</td>
+			<td>{{team.TeamName}}</td>
+			<td>{{team.Votes}}</td>
+		</tr>
+		<tr class="footer">
+			<td colspan="3">
+				<button class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+			</td>
+		</tr>
+	</table>
+	<div class="modal fade" id="exportModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Export</h4>
+				</div>
+				<div class="modal-body">
+					<p>Do you want to export the results?</b></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" ng-click="clickToExport(votingData.LoggedInTeamId)" data-dismiss="modal">Export</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

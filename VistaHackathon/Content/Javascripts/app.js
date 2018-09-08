@@ -13,7 +13,11 @@ app.config(function($routeProvider) {
     .when("/vote", {
         templateUrl: "/Content/Templates/voting.html",
         controller: "votingCtrl"
-     })
+    })
+    .when("/status", {
+        templateUrl: "/Content/Templates/state.html",
+        controller: "statusCtrl"
+    })
     .otherwise({
         redirect: '/login'
     });
@@ -32,6 +36,10 @@ app.service("apiService", function ($http) {
 
     this.submitVote = function (memberId, teamId) {
         return $http.post("http://vistahackathontest.azurewebsites.net/VistaAPI/UpdateVote", { "memberId": memberId, "teamId": teamId });
+    }
+
+    this.exportData = function (teamId) {
+        return $http.post("http://vistahackathontest.azurewebsites.net/VistaAPI/ExportToExcel", { "teamId": teamId });
     }
 
     this.getVotingModel = function () {
@@ -62,7 +70,18 @@ app.controller("loginCtrl", function ($scope, $location, apiService) {
         apiService.validateAndGetTeams(team, num).then(function (promise) {
             apiService.setTeamsList(promise.data);
             $("#loadingModal").modal('hide');
-            $location.path('/vote');
+            if (promise.data.SuccessStatus == "Valid") {
+                $location.path('/vote');
+            }
+            else if (promise.data.SuccessStatus == "InValid") {
+                alert("This mobile number doesn't belong to this team");
+            }
+            else if (promise.data.SuccessStatus == "AlreadySubmitted") {
+                alert("Vote has already been submitted by this number");
+            }
+            else if (promise.data.SuccessStatus == "ValidSuperUser") {
+                $location.path('/status');
+            }
         });
     }
 });
@@ -81,6 +100,20 @@ app.controller("votingCtrl", function ($scope, $location,apiService) {
             if (promise.data) {
                 $location.path('/');
             }
+        });
+    }
+});
+
+app.controller("statusCtrl", function ($scope, $location, apiService) {
+    $scope.votedTeam = {};
+    $scope.votingData = apiService.getVotingModel();
+
+    $scope.clickToExport = function (tid) {
+        $("#loadingModal").modal('show');
+        apiService.exportData(tid).then(function (promise) {
+            $("#loadingModal").modal('hide');
+            var blob = new Blob([promise.data], { type: "application/vnd.ms-excel" });
+            var objectUrl = URL.createObjectURL(blob); window.open(objectUrl);
         });
     }
 });

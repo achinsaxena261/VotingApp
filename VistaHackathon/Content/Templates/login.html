@@ -3,7 +3,7 @@
 		<div class="login-controls">
 			<select class="form-control border-reset" ng-model="selectedTeam">
 				<option value="">--Select Your Team--</option>
-				<option ng-repeat="team in teams" value="{{team.TeamId}}">{{team.TeamName}}</option>
+				<option ng-repeat="team in teams | orderBy : 'TeamName'" value="{{team.TeamId}}">{{team.TeamName}}</option>
 			</select>
 		</div>
 		<div class="login-controls">
