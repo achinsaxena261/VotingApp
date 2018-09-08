@@ -1,0 +1,16 @@
+<div class="login-container">
+	<div class="login-form">
+		<div class="login-controls">
+			<select class="form-control border-reset" ng-model="selectedTeam">
+				<option value="">--Select Your Team--</option>
+				<option ng-repeat="team in teams">{{team.TeamName}}</option>
+			</select>
+		</div>
+		<div class="login-controls">
+			<input placeholder="Enter phone" type="text" name="phone" class="form-control border-reset" />
+		</div>
+		<div class="action">
+			<button class="btn btn-primary border-reset">Go for it</button>
+		</div>
+	</div>
+</div>

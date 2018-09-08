@@ -1,0 +1,58 @@
+.body {
+}
+.spalsh-screen {
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+	display: flex;
+	/*background-color: #48575b;*/
+	background-image: url('Content/Assets/glbg.jpg');
+	height: 100%;
+	width: 100%;
+	padding: 15% 25%;
+	background-size: cover;
+}
+
+.logo img {
+	vertical-align: middle;
+	box-shadow: 0px 0px 3px 1px;
+	border-radius: 100%;
+}
+
+.intro {
+	font-family: Georgia;
+	margin-top: 25%;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+}
+
+.login-container {
+	background-color: #373434;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+}
+
+.login-container .border-reset{
+	border-radius: 0;
+}
+
+.login-form {
+	display: flex;
+	background-color: rgb(255, 137, 35);
+	border-radius: 1%;
+	box-shadow: 0px 0px 1px 1px;
+	width: 90%;
+	height: 50%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-controls {
+	margin: 3% 0;
+	width: 90%;
+}

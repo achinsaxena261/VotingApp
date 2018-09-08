@@ -158,8 +158,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Assets\glbg.jpg" />
+    <Content Include="Content\Assets\Vote-icon.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Javascripts\app.js" />
+    <Content Include="Content\Styles\style.css" />
+    <Content Include="Content\Templates\login.html" />
+    <Content Include="Content\Templates\main.html" />
+    <Content Include="Content\Templates\vote-your-team.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
