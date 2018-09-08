@@ -72,3 +72,12 @@ tr.footer{
 .voting-options .btn-primary {
 	border-radius: 0;
 }
+
+#loadingModal {
+	text-align: center;
+	margin-top: 40%;
+}
+
+#loadingModal img {
+	height: 15%;
+}
