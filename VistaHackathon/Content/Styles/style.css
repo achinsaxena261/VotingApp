@@ -4,10 +4,13 @@
 	align-items: center;
 	display: flex;
 	background-image: url('../Assets/glbg.jpg');
-	height: 100%;
-	width: 100%;
 	padding: 15% 25%;
 	background-size: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 .logo img {
@@ -27,11 +30,17 @@
 .login-container {
 	align-items: center;
 	display: flex;
-	background-image: url('../Assets/glbg.jpg');
-	height: 100%;
-	width: 100%;
-	padding: 15%;
+	background-image: url(../Assets/glbg.jpg);
+	padding: 5%;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-size: cover;
+	justify-content: center;
+	position: fixed;
+	left: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 .login-container .border-reset{

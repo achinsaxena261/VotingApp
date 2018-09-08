@@ -7,7 +7,7 @@
 			</select>
 		</div>
 		<div class="login-controls">
-			<input placeholder="Enter phone" ng-model="contactNum" type="text" name="phone" class="form-control border-reset" />
+			<input placeholder="Enter phone" ng-model="contactNum" type="number" name="phone" class="form-control border-reset" />
 		</div>
 		<div class="action">
 			<button class="btn btn-primary border-reset" ng-disabled="!(selectedTeam && contactNum)" ng-click="goForVote(selectedTeam, contactNum)">Go for it</button>
