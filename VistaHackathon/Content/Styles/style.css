@@ -1,12 +1,9 @@
-.body {
-}
 .spalsh-screen {
 	flex-direction: column;
 	/* justify-content: center; */
 	align-items: center;
 	display: flex;
-	/*background-color: #48575b;*/
-	background-image: url('Content/Assets/glbg.jpg');
+	background-image: url('../Assets/glbg.jpg');
 	height: 100%;
 	width: 100%;
 	padding: 15% 25%;
@@ -28,12 +25,13 @@
 }
 
 .login-container {
-	background-color: #373434;
-	display: flex;
 	align-items: center;
+	display: flex;
+	background-image: url('../Assets/glbg.jpg');
 	height: 100%;
 	width: 100%;
-	justify-content: center;
+	padding: 15%;
+	background-size: cover;
 }
 
 .login-container .border-reset{
@@ -42,7 +40,7 @@
 
 .login-form {
 	display: flex;
-	background-color: rgb(255, 137, 35);
+	background-color: rgba(198, 197, 196, 0.68);
 	border-radius: 1%;
 	box-shadow: 0px 0px 1px 1px;
 	width: 90%;
@@ -50,9 +48,18 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 5% 0;
 }
 
 .login-controls {
 	margin: 3% 0;
 	width: 90%;
+}
+
+tr.footer{
+	text-align: center;
+}
+
+.voting-options .btn-primary {
+	border-radius: 0;
 }

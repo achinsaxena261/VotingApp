@@ -166,7 +166,7 @@
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Templates\login.html" />
     <Content Include="Content\Templates\main.html" />
-    <Content Include="Content\Templates\vote-your-team.html" />
+    <Content Include="Content\Templates\voting.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
