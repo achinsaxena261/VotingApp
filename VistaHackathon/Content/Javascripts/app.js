@@ -44,7 +44,7 @@ app.service("apiService", function ($http) {
 });
 
 app.controller("mainCtrl", function ($scope, $timeout, $location) {
-    $timeout(function () { $location.path('/login') }, 3000);
+    $timeout(function () { $location.path('/login') }, 2000);
 });
 
 app.controller("loginCtrl", function ($scope, $location, apiService) {
@@ -79,7 +79,7 @@ app.controller("votingCtrl", function ($scope, $location,apiService) {
         apiService.submitVote(mid, tid).then(function (promise) {
             $("#loadingModal").modal('hide');
             if (promise.data) {
-                $location.path('/login');
+                $location.path('/');
             }
         });
     }

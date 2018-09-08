@@ -1,14 +1,14 @@
 <div class="voting-options">
-	<table class="table table-striped">
-		<tr>
+	<table class="table">
+		<tr class="table-heading">
 			<td colspan="3">
-				<h3>{{votingData.MemberName}}</h3>
-				<h4>{{votingData.MemberTeamName}}</h4>
+				<h2>{{votingData.MemberName}}</h2>
+				<h3>{{votingData.MemberTeamName}}</h3>
 			</td>
 		</tr>
 		<tr ng-repeat="team in votingData.TeamsListForFeedback">
 			<td>{{team.TeamName}}</td>
-			<td>{{team}}</td>
+			<td>{{team.TeamIdea}}</td>
 			<td>
 				<input type="radio" ng-model="votedTeam.info" ng-value="team" ng-change="updatedModelValue(team)" name="teamGroup" />
 			</td>

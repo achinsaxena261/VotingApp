@@ -43,7 +43,20 @@
 	min-height: 100%;
 }
 
-.login-container .border-reset{
+.voting-options {
+	background-image: url(../Assets/glbg.jpg);
+	padding: 5%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	left: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.login-container .border-reset {
 	border-radius: 0;
 }
 
@@ -78,6 +91,15 @@ tr.footer{
 	margin-top: 40%;
 }
 
+#confirmModal{
+	color: black;
+}
+
 #loadingModal img {
 	height: 15%;
+}
+
+.table-heading {
+	text-align: center;
+	color: #f4ea8e;
 }
