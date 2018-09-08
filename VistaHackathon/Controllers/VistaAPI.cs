@@ -85,8 +85,9 @@ namespace VistaHackathon.Controllers
 				{
 					var vote = new ParticipantsVote()
 					{
-						ParticipantsId = participantVote.ParticipantsId,
-						TeamIdVoted = teamId
+						ParticipantsId = memberId,
+						TeamIdVoted = teamId,
+						CreatedDate= DateTime.UtcNow,
 					};
 					da.ParticipantsVotes.Add(vote);
 				}
