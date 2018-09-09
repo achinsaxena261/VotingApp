@@ -91,10 +91,8 @@ tr.footer{
 }
 
 .voting-options {
-	background-image: url(../Assets/glbg.jpg);
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 1px 1px 1px #000;
 }
 
 .voting-options .btn-primary {
