@@ -1,9 +1,8 @@
 .spalsh-screen {
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 	display: flex;
-	background-image: url('../Assets/glbg.jpg');
+	background-image: url('../Assets/Mobile-App-Login.png');
 	padding: 15% 25%;
 	background-size: cover;
 	position: fixed;
@@ -74,6 +73,11 @@
 	align-items: center;
 	padding: 5% 0;
 	max-width: 560px;
+}
+
+.login-form img {
+	height: 100%;
+	width: 100%;
 }
 
 .login-controls {
