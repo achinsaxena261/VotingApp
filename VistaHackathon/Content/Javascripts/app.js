@@ -64,7 +64,7 @@ app.controller("mainCtrl", function ($scope, $timeout, $location, apiService) {
         $scope.renderObj = { text: "Voted Successfully", img: "/Content/Assets/Success.png" };
     }
     else {
-        $scope.renderObj = { text: "Vote Your Choice", img: "/Content/Assets/Vote-icon.png" };
+        $scope.renderObj = { text: "Peer Recognition Award", img: "/Content/Assets/Vote-icon.png" };
     }
     $timeout(function () {
         $(".spalsh-screen").fadeOut();

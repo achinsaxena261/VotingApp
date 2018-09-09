@@ -1,5 +1,6 @@
 <div class="login-container">
 	<div class="login-form">
+		<img src="/Content//Assets/logo.png" alt="globallogic" />
 		<div class="login-controls">
 			<select class="form-control border-reset" ng-model="selectedTeam">
 				<option value="">--Select Your Team--</option>
@@ -7,11 +8,7 @@
 			</select>
 		</div>
 		<div class="login-controls">
-			<input placeholder="Enter phone number" ng-model="contactNum" type="number" name="phone" class="form-control border-reset" />
-			<!--<div class="tooltip-block">
-				<span class="info-icon"></span>
-				<span class="tooltiptext">Don't use country code</span>
-			</div>-->
+			<input placeholder="Enter phone number" ng-model="contactNum" type="number" name="phone" class="form-control border-reset tooltip-block" />
 		</div>
 		<div class="action">
 			<button class="btn btn-primary border-reset" ng-disabled="!(selectedTeam && contactNum)" ng-click="goForVote(selectedTeam, contactNum)">GO FOR IT</button>

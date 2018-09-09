@@ -119,8 +119,6 @@ tr.footer{
 
 .tooltip-block {
 	position: relative;
-	display: inline-block;
-	padding: 5px;
 }
 
 .tooltip-block .tooltiptext {
