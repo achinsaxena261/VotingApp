@@ -17,6 +17,7 @@
 	vertical-align: middle;
 	box-shadow: 0px 0px 3px 1px;
 	border-radius: 100%;
+	max-height: 125px;
 }
 
 .intro {
@@ -25,6 +26,7 @@
 	width: 100%;
 	text-align: center;
 	color: #fff;
+	text-shadow: 1px -2px #000;
 }
 
 .login-container {
@@ -71,11 +73,13 @@
 	justify-content: center;
 	align-items: center;
 	padding: 5% 0;
+	max-width: 560px;
 }
 
 .login-controls {
 	margin: 3% 0;
 	width: 90%;
+	display: flex;
 }
 
 tr.footer{
@@ -87,8 +91,9 @@ tr.footer{
 }
 
 #loadingModal {
-	text-align: center;
-	margin-top: 40%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #confirmModal{
@@ -106,4 +111,46 @@ tr.footer{
 .table-heading {
 	text-align: center;
 	color: #f4ea8e;
+}
+
+.info-icon:before{
+	background-image: url('../Assets/Info.png');
+}
+
+.tooltip-block {
+	position: relative;
+	display: inline-block;
+	padding: 5px;
+}
+
+.tooltip-block .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: khaki;
+	color: #000;
+	text-align: center;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip-block .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: khaki transparent transparent transparent;
+}
+
+.tooltip-block:active .tooltiptext {
+	visibility: visible;
+	opacity: 1;
 }

@@ -4,7 +4,7 @@ app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "/Content/Templates/main.html",
-        controller: "mainCtrl"        
+        controller: "mainCtrl"
     })
     .when("/login", {
         templateUrl: "/Content/Templates/login.html",
@@ -25,7 +25,7 @@ app.config(function($routeProvider) {
 
 app.service("apiService", function ($http) {
     this.votingModel = {};
-
+    this.IsVotingDone = false;
     this.getTeams = function () {
         return $http.get("http://vistahackathontest.azurewebsites.net/VistaAPI/GetTeams");
     }
@@ -46,13 +46,30 @@ app.service("apiService", function ($http) {
         return this.votingModel;
     }
 
+    this.setVotingStatus = function(status){
+        this.IsVotingDone = status;
+    }
+
+    this.getVotingStatus = function(){
+        return this.IsVotingDone;
+    }
+
     this.setTeamsList = function (data) {
         this.votingModel = data;
     }
 });
 
-app.controller("mainCtrl", function ($scope, $timeout, $location) {
-    $timeout(function () { $location.path('/login') }, 2000);
+app.controller("mainCtrl", function ($scope, $timeout, $location, apiService) {
+    if (apiService.getVotingStatus()) {
+        $scope.renderObj = { text: "Voted Successfully", img: "/Content/Assets/Success.png" };
+    }
+    else {
+        $scope.renderObj = { text: "Vote Your Choice", img: "/Content/Assets/Vote-icon.png" };
+    }
+    $timeout(function () {
+        $(".spalsh-screen").fadeOut();
+        $location.path('/login')
+    }, 2000);
 });
 
 app.controller("loginCtrl", function ($scope, $location, apiService) {
@@ -89,15 +106,18 @@ app.controller("loginCtrl", function ($scope, $location, apiService) {
 app.controller("votingCtrl", function ($scope, $location,apiService) {
     $scope.votedTeam = {};
     $scope.votingData = apiService.getVotingModel();
+    if (!$scope.votingData.LoggedInTeamId) {
+        $location.path('/login');
+    }
     $scope.updatedModelValue = function (data) {
         console.log(data);
     }
-
     $scope.clickToVote = function (mid, tid) {
         $("#loadingModal").modal('show');
         apiService.submitVote(mid, tid).then(function (promise) {
             $("#loadingModal").modal('hide');
             if (promise.data) {
+                apiService.setVotingStatus(promise.data);
                 $location.path('/');
             }
         });
@@ -107,7 +127,9 @@ app.controller("votingCtrl", function ($scope, $location,apiService) {
 app.controller("statusCtrl", function ($scope, $location, apiService) {
     $scope.votedTeam = {};
     $scope.votingData = apiService.getVotingModel();
-
+    if (!$scope.votingData.LoggedInTeamId) {
+        $location.path('/login');
+    }
     $scope.clickToExport = function (tid) {
         $("#loadingModal").modal('show');
         apiService.exportData(tid).then(function (promise) {
