@@ -46,9 +46,10 @@ namespace VistaHackathon.Controllers
 				{
 					SuccessStatus = Status.Valid.ToString(),
 					MemberId = participant.Id,
-					MemberName = participant.Name,
+					MemberName = participant.Name.Trim().ToUpper(),
 					MemberTeamName = participant.Team.TeamName,
-					TeamsListForFeedback = da.Teams.Where(o => participant.TeamId != o.Id).Select(k => new TeamVM()
+					LoggedInTeamId = teamId,
+					TeamsListForFeedback = da.Teams.Where(o => participant.TeamId != o.Id && o.Id != SuperUser).Select(k => new TeamVM()
 					{
 						TeamId = k.Id,
 						TeamName = k.TeamName,
@@ -111,7 +112,7 @@ namespace VistaHackathon.Controllers
 			List<TeamVM> result = null;
 			if (teamId == SuperUser)
 			{
-				result = da.Teams.Select(k => new TeamVM()
+				result = da.Teams.Where(o=>o.Id != SuperUser).Select(k => new TeamVM()
 				{
 					TeamId = k.Id,
 					TeamName = k.TeamName,
@@ -129,9 +130,9 @@ namespace VistaHackathon.Controllers
 
 
 		[HttpPost]
-		public ActionResult ExportToExcel(int teamId = 0)
+		public ActionResult ExportToExcel(int teamId)
 		{
-			var obj = GetVotes(teamId);
+			var obj = GetVotes(teamId).OrderByDescending(k=>k.Votes);
 
 			StringBuilder str = new StringBuilder();
 
@@ -161,8 +162,15 @@ namespace VistaHackathon.Controllers
 
 			str.Append("</table>");
 
-			HttpContext.Response.AddHeader("content-disposition", "attachment; filename=Information" + DateTime.Now.Year.ToString() + ".xls");
+			HttpContext.Response.AddHeader("content-disposition", "attachment; filename=Information" + DateTime.Now.Year.ToString() + ".xlsx");
 
+			this.Response.AppendHeader("Pragma","public");
+			this.Response.AppendHeader("Expires","0");
+			this.Response.AppendHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+			this.Response.AppendHeader("Content-Type","application/force-download");
+			this.Response.AppendHeader("Content-Type", "application/octet-stream");
+			this.Response.AppendHeader("Content-Type", "application/download"); ;
+			this.Response.AppendHeader("Content-Transfer-Encoding", "binary");
 			this.Response.ContentType = "application/vnd.ms-excel";
 
 			byte[] temp = System.Text.Encoding.UTF8.GetBytes(str.ToString());

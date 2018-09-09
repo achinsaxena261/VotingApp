@@ -41,6 +41,9 @@ namespace VistaHackathon.Models
 		public string MemberName { get; set; }
 
 		[DataMember]
+		public int LoggedInTeamId { get; set; }
+
+		[DataMember]
 		public List<TeamVM> TeamsListForFeedback { get; set; }
 	}
 
