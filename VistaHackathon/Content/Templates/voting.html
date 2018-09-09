@@ -1,45 +1,43 @@
 <div class="voting-options">
-	<div class="table-container">
-		<table class="table">
-			<tr class="table-heading">
-				<td colspan="3">
-					<h2>{{votingData.MemberName}}</h2>
-					<h3>{{votingData.MemberTeamName}}</h3>
-				</td>
-			</tr>
-			<tr>
-				<th>Team</th>
-				<th>Idea Title</th>
-				<th>Select</th>
-			</tr>
-			<tr ng-repeat="team in votingData.TeamsListForFeedback | orderBy : 'TeamName'">
-				<td>{{team.TeamName}}</td>
-				<td>{{team.TeamIdea}}</td>
-				<td>
-					<input type="radio" ng-model="votedTeam.info" ng-value="team" ng-change="updatedModelValue(team)" name="teamGroup" />
-				</td>
-			</tr>
-			<tr class="footer">
-				<td colspan="3">
-					<button class="btn btn-primary" data-toggle="modal" ng-disabled="!votedTeam.info" data-target="#confirmModal">Vote Now</button>
-				</td>
-			</tr>
-		</table>
-		<div class="modal fade" id="confirmModal" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Confirm Your Vote</h4>
-					</div>
-					<div class="modal-body">
-						<p>Are you sure? your vote will be submitted for <b>{{votedTeam.info.TeamName}}</b></p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" ng-click="clickToVote(votingData.MemberId, votedTeam.info.TeamId)" data-dismiss="modal">Vote</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+	<table class="table">
+		<tr class="table-heading">
+			<td colspan="3">
+				<h2>{{votingData.MemberName}}</h2>
+				<h3>{{votingData.MemberTeamName}}</h3>
+			</td>
+		</tr>
+		<tr>
+			<th>Team</th>
+			<th>Idea Title</th>
+			<th>Select</th>
+		</tr>
+		<tr ng-repeat="team in votingData.TeamsListForFeedback | orderBy : 'TeamName'">
+			<td>{{team.TeamName}}</td>
+			<td>{{team.TeamIdea}}</td>
+			<td>
+				<input type="radio" ng-model="votedTeam.info" ng-value="team" ng-change="updatedModelValue(team)" name="teamGroup" />
+			</td>
+		</tr>
+		<tr class="footer">
+			<td colspan="3">
+				<button class="btn btn-primary" data-toggle="modal" ng-disabled="!votedTeam.info" data-target="#confirmModal">Vote Now</button>
+			</td>
+		</tr>
+	</table>
+	<div class="modal fade" id="confirmModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Confirm Your Vote</h4>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure? your vote will be submitted for <b>{{votedTeam.info.TeamName}}</b></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" ng-click="clickToVote(votingData.MemberId, votedTeam.info.TeamId)" data-dismiss="modal">Vote</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>

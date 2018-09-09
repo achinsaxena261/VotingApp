@@ -1,9 +1,20 @@
+html {
+	height: 100%;
+}
+body {
+	background-image: url(../Assets/glbg.jpg);
+	background-position: center;
+	background-size: cover;
+	left: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
 .spalsh-screen {
 	flex-direction: column;
 	align-items: center;
 	display: flex;
 	background-image: url('../Assets/Mobile-App-Login.png');
-	padding: 15% 25%;
 	background-size: cover;
 	position: fixed;
 	left: 0;
@@ -38,37 +49,12 @@
 .login-container {
 	align-items: center;
 	display: flex;
-	background-image: url(../Assets/glbg.jpg);
-	padding: 5%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 	justify-content: center;
-	position: fixed;
-	left: 0;
-	right: 0;
-	min-width: 100%;
-	min-height: 100%;
 }
 
 .voting-options {
-	background-image: url(../Assets/glbg.jpg);
-	padding: 5%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 	color: #fff;
-	left: 0;
-	right: 0;
-	min-width: 100%;
-	min-height: 100%;
-	position: fixed;
-}
-
-.voting-options .table-container {
-	overflow: auto;
-	height: 100%;
-	width: 100%
+	padding: 5%;
 }
 
 .login-container .border-reset {
@@ -87,6 +73,7 @@
 	align-items: center;
 	padding: 5% 0;
 	max-width: 560px;
+	margin-top: 150px;
 }
 
 .login-form img {
@@ -102,6 +89,13 @@
 
 tr.footer{
 	text-align: center;
+}
+
+.voting-options {
+	background-image: url(../Assets/glbg.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .voting-options .btn-primary {
