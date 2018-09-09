@@ -69,7 +69,7 @@ app.controller("mainCtrl", function ($scope, $timeout, $location, apiService) {
     $timeout(function () {
         $(".spalsh-screen").fadeOut();
         $location.path('/login')
-    }, 2000);
+    }, 5000);
 });
 
 app.controller("loginCtrl", function ($scope, $location, apiService) {
