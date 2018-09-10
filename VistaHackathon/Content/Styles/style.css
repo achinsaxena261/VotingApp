@@ -4,7 +4,6 @@ html {
 body {
 	background-image: url(../Assets/glbg.jpg);
 	background-position: center;
-	background-size: cover;
 	left: 0;
 	right: 0;
 	min-width: 100%;
