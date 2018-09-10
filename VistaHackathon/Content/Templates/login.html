@@ -1,17 +1,17 @@
 <div class="login-container">
-	<div class="login-form">
+	<form class="login-form">
 		<img src="/Content/Assets/VistaLogo.png" alt="Vista_Apac_hackathon" />
 		<div class="login-controls">
-			<select class="form-control border-reset" ng-model="selectedTeam">
+			<select class="form-control border-reset" ng-model="selectedTeam" required="required">
 				<option value="">--Select Your Team--</option>
 				<option ng-repeat="team in teams | orderBy : 'TeamName'" value="{{team.TeamId}}">{{team.TeamName}}</option>
 			</select>
 		</div>
 		<div class="login-controls">
-			<input placeholder="Enter Phone Number" ng-model="contactNum" type="number" name="phone" class="form-control border-reset tooltip-block" />
+			<input placeholder="Enter Phone Number" required="required" ng-model="contactNum" type="number" name="phone" class="form-control border-reset tooltip-block" />
 		</div>
 		<div class="action">
-			<button class="btn btn-primary border-reset" ng-disabled="!(selectedTeam && contactNum)" ng-click="goForVote(selectedTeam, contactNum)">GO FOR IT</button>
+			<button type="submit" id="loginAction" class="btn btn-primary border-reset" ng-disabled="!(selectedTeam && contactNum)" ng-click="goForVote(selectedTeam, contactNum)">GO FOR IT</button>
 		</div>
-	</div>
+	</form>
 </div>
